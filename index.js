@@ -94,31 +94,6 @@ function cadastroempresaView(req, resp) {
             </html>
     `);
 }
-
-function menuView(req, resp) {
-    resp.send(`
-        <html>
-            <head>
-                <title>Cadastro de Empresa</title>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-            </head>
-            <body>
-                <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">MENU</a>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                                <a class="nav-link active" aria-current="page" href="/cadastrarEmpresa">Cadastrar Empresa</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </body>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        </html>
-        `);
-}
-
 function cadastrarEmpresa(req, resp) {
     //recuperar os dados do formulário enviados para o servidor
     const rsocial = req.body.rsocial;
@@ -353,7 +328,7 @@ function cadastrarEmpresa(req, resp) {
     resp.end();
 }
 
-app.get('/', menuView);
+app.get('/', cadastroempresaView);
 app.get('/cadastrarEmpresa', cadastroempresaView); 
 
 app.post('/cadastrarEmpresa', cadastrarEmpresa);
